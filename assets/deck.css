@@ -487,3 +487,6 @@ html.print .rotate-hint,html.presenter .rotate-hint{display:none!important}
 .s-protocol .highlight{margin-top:70px;border-top:4px solid var(--ic);padding-top:30px;max-width:720px}
 .s-protocol .highlight b{display:block;font-size:52px;line-height:1.02;font-weight:760;font-stretch:74%;color:var(--ink)}
 .s-protocol .highlight p{font-size:32px;line-height:1.35;margin-top:16px}
+
+.photo .seq{position:absolute;left:18px;bottom:16px;background:rgba(255,255,255,.94);color:var(--ink);font-size:24px;font-weight:600;line-height:1;padding:10px 16px;border-radius:4px}
+.photo .seq b{color:var(--ic);margin-right:10px}
