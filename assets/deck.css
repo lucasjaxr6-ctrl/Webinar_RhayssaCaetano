@@ -490,3 +490,10 @@ html.print .rotate-hint,html.presenter .rotate-hint{display:none!important}
 
 .photo .seq{position:absolute;left:18px;bottom:16px;background:rgba(255,255,255,.94);color:var(--ink);font-size:24px;font-weight:600;line-height:1;padding:10px 16px;border-radius:4px}
 .photo .seq b{color:var(--ic);margin-right:10px}
+
+.s-models .grid.three{grid-template-columns:200px 1fr 1fr 1fr;grid-template-rows:auto 300px 300px}
+.s-cases .cases{top:360px}
+.s-cases .cap{flex-direction:column;gap:14px;margin-top:0;padding-top:30px;border-top:4px solid var(--ink)}
+.s-cases .cap b{font-size:28px}
+.s-cases .cap span{font-size:72px;line-height:1}
+.s-cases .protocol{top:760px}
