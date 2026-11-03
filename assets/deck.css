@@ -497,3 +497,12 @@ html.print .rotate-hint,html.presenter .rotate-hint{display:none!important}
 .s-cases .cap b{font-size:28px}
 .s-cases .cap span{font-size:72px;line-height:1}
 .s-cases .protocol{top:760px}
+.s-protocol .pics.quad,.s-protocol .pics.trio{grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.s-protocol .pics.trio .wide{grid-column:1 / -1}
+.s-protocol .pics.six,.s-protocol .pics.five{left:860px;gap:22px}
+.s-protocol .pics.six{grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}
+.s-protocol .pics.five{grid-template-columns:repeat(6,1fr);grid-template-rows:1fr 1fr}
+.s-protocol .pics.five .photo{grid-column:span 2}
+.s-protocol .pics.five .photo.b{grid-column:span 3}
+.s-protocol .pics.six .seq,.s-protocol .pics.five .seq{font-size:21px;padding:8px 12px;left:12px;bottom:12px}
+.s-protocol:has(.pics.six) .left,.s-protocol:has(.pics.five) .left{width:680px}
