@@ -17,24 +17,25 @@
   let cur = -1, busy = false, queued = null;
 
   /* ---------- per-slide setup ---------- */
-  const STOPS = [['Retraction','RetraXil blue'],['Bite','Bite registration'],['Impression','Flexitime unlimited'],['Cementation','iCEM Universal Plus']];
+  const STOPS = [['Retraction','RetraXil blue'],['Impression','Flexitime unlimited'],['Cementation','iCEM Universal Plus']];
+  const STEP = {1:1, 2:1, 3:2, 4:3}; // data-stage → footer stop (bite step removed)
   slides.forEach(s => {
     s.querySelectorAll('[data-r]').forEach((el, i) => el.style.setProperty('--i', i));
     if (s.dataset.track !== 'none') {
-      const st = +s.dataset.stage || 0;
+      const raw = +s.dataset.stage || 0, all = raw > 4, st = all ? 4 : (STEP[raw] || 0), n = STOPS.length;
       const t = document.createElement('div');
-      t.className = 'track'; t.setAttribute('aria-label', Number.isInteger(st) && st >= 1 && st <= 4 ? `Case step ${st} of 4: ${STOPS[st-1][0]}` : 'Case steps');
+      t.className = 'track'; t.setAttribute('aria-label', st >= 1 && st <= n ? `Case step ${st} of ${n}: ${STOPS[st-1][0]}` : 'Case steps');
       t.innerHTML = '<div class="fill"></div>' + STOPS.map((x, i) => {
-        const k = i + 1, cls = st > 4 || k < st ? 'done' : (k === st ? 'now' : '');
+        const k = i + 1, cls = all || k < st ? 'done' : (k === st ? 'now' : '');
         return `<div class="stop ${cls}"><i class="dot"></i><div><b>${x[0]}</b><span>${x[1]}</span></div></div>`;
       }).join('');
-      t.dataset.fill = st > 4 ? 100 : Math.max(0, (Math.ceil(st) - 1) * (100 / 3));
+      t.dataset.fill = all ? 100 : Math.max(0, (st - 1) * (100 / (n - 1)));
       s.appendChild(t);
       const f = document.createElement('p'); f.className = 'folio'; f.textContent = String(s.dataset.n || '').padStart(2, '0');
       s.appendChild(f);
     }
   });
-  const setFill = (s, on) => s.querySelectorAll('.track').forEach(t => t.querySelector('.fill').style.width = on ? `${t.dataset.fill * 0.75}%` : "0");
+  const setFill = (s, on) => s.querySelectorAll('.track').forEach(t => t.querySelector('.fill').style.width = on ? `${t.dataset.fill * 2 / 3}%` : "0");
   if (PRINT) slides.forEach(s => setFill(s, true));
 
   /* ---------- Flexible-Time-Concept timeline ---------- */

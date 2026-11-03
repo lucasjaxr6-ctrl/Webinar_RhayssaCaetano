@@ -506,3 +506,14 @@ html.print .rotate-hint,html.presenter .rotate-hint{display:none!important}
 .s-protocol .pics.five .photo.b{grid-column:span 3}
 .s-protocol .pics.six .seq,.s-protocol .pics.five .seq{font-size:21px;padding:8px 12px;left:12px;bottom:12px}
 .s-protocol:has(.pics.six) .left,.s-protocol:has(.pics.five) .left{width:680px}
+
+/* footer tracker + protocol line: 3 steps (bite removed) */
+.track{grid-template-columns:repeat(3,1fr)}
+.track::before{right:calc(33.333% - 9px)}
+.track .fill{background:linear-gradient(90deg,var(--rx),#F43597 50%,var(--ic))}
+.track .stop:nth-child(2){--sc:var(--rx)} .track .stop:nth-child(3){--sc:#F43597} .track .stop:nth-child(4){--sc:var(--ic)}
+.track .stop:nth-child(4).done .dot,.track .stop:nth-child(4).now .dot{background:var(--sc)}
+.track .stop:nth-child(3).done .dot,.track .stop:nth-child(3).now .dot{background:var(--fx-grad)}
+.protocol .line{grid-template-columns:repeat(3,1fr)}
+.protocol .line::before{right:calc(33.333% - 14px);background:linear-gradient(90deg,var(--rx),#F43597 50%,var(--ic))}
+.s-models .grid.three{grid-template-rows:330px 330px}
