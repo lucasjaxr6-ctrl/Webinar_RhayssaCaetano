@@ -517,3 +517,13 @@ html.print .rotate-hint,html.presenter .rotate-hint{display:none!important}
 .protocol .line{grid-template-columns:repeat(3,1fr)}
 .protocol .line::before{right:calc(33.333% - 14px);background:linear-gradient(90deg,var(--rx),#F43597 50%,var(--ic))}
 .s-models .grid.three{grid-template-rows:330px 330px}
+
+/* slide 17 · iCEM in our daily routine (redesign) */
+.s-daily .kicker{position:absolute;left:var(--m);top:250px;font-size:30px;font-weight:600;color:var(--ic-dark);letter-spacing:.01em}
+.s-daily .uses{position:absolute;left:var(--m);top:320px;width:680px;list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.s-daily .uses li{display:flex;align-items:baseline;gap:34px;padding:20px 0 18px;border-bottom:1px solid var(--line);font-size:76px;line-height:1;font-weight:780;font-stretch:72%;color:var(--ink)}
+.s-daily .uses li span{font-size:26px;font-weight:640;font-stretch:100%;color:var(--ic);width:40px;flex:none;transform:translateY(-6px)}
+.s-daily .uses li:last-child{color:var(--ic-dark)}
+.s-daily .hero{position:absolute;left:940px;right:var(--m);top:250px;height:660px;border-radius:10px;overflow:hidden;background:url(icem-pattern-pale.svg) center/1920px 1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:50px 60px}
+.s-daily .hero .logo{height:84px;width:auto}
+.s-daily .hero .pack{width:100%;height:auto;filter:drop-shadow(0 24px 30px rgba(120,60,0,.18))}
